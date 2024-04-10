@@ -11,11 +11,11 @@ new class extends Component {
     {
         $validated = $this->validate();
 
-        auth()->user()->chirps()->create($validated);
+        auth()->user()->messengers()->create($validated);
 
         $this->message = '';
 
-        $this->dispatch('chirp-created');
+        $this->dispatch('messenger-created');
     }
 }; ?>
 
@@ -28,6 +28,6 @@ new class extends Component {
         ></textarea>
 
         <x-input-error :messages="$errors->get('message')" class="mt-2" />
-        <x-primary-button class="mt-4">{{ __('Chirp') }}</x-primary-button>
+        <x-primary-button class="mt-4">{{ __('Messenger') }}</x-primary-button>
     </form>
 </div>

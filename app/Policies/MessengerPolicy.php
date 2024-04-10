@@ -3,10 +3,10 @@
 namespace App\Policies;
 
 use Illuminate\Auth\Access\Response;
-use App\Models\Chirp;
+use App\Models\Messenger;
 use App\Models\User;
 
-class ChirpPolicy
+class MessengerPolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -19,7 +19,7 @@ class ChirpPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Chirp $chirp): bool
+    public function view(User $user, Messenger $messenger): bool
     {
         //
     }
@@ -35,23 +35,23 @@ class ChirpPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Chirp $chirp): bool
+    public function update(User $user, Messenger $messenger): bool
     {
-        return $chirp->user()->is($user);
+        return $messenger->user()->is($user);
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Chirp $chirp): bool
+    public function delete(User $user, Messenger $messenger): bool
     {
-        return $this->update($user, $chirp);
+        return $this->update($user, $messenger);
     }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Chirp $chirp): bool
+    public function restore(User $user, Messenger $messenger): bool
     {
         //
     }
@@ -59,7 +59,7 @@ class ChirpPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Chirp $chirp): bool
+    public function forceDelete(User $user, Messenger $messenger): bool
     {
         //
     }

@@ -1,54 +1,54 @@
 <?php
 
-use App\Models\Chirp;
+use App\Models\Messenger;
 use Illuminate\Database\Eloquent\Collection;
 use Livewire\Attributes\On;
 use Livewire\Volt\Component;
 
 new class extends Component {
-    public Collection $chirps;
-    public ?Chirp $editing = null;
+    public Collection $messengers;
+    public ?Messenger $editing = null;
 
     public function mount(): void
     {
-        $this->getChirps();
+        $this->getMessengers();
     }
 
-    #[On('chirp-created')]
-    public function getChirps(): void
+    #[On('messenger-created')]
+    public function getMessengers(): void
     {
-        $this->chirps = Chirp::with('user')->latest()->get();
+        $this->messengers = Messenger::with('user')->latest()->get();
     }
 
-    public function edit(Chirp $chirp): void
+    public function edit(Messenger $messenger): void
     {
-        $this->editing = $chirp;
+        $this->editing = $messenger;
 
-        $this->getChirps();
+        $this->getMessengers();
     }
 
-    #[On('chirp-edit-canceled')]
-    #[On('chirp-updated')]
+    #[On('messenger-edit-canceled')]
+    #[On('messenger-updated')]
     public function disableEditing(): void
     {
         $this->editing = null;
 
-        $this->getChirps();
+        $this->getMessengers();
     }
 
-    public function delete(Chirp $chirp): void
+    public function delete(Messenger $messenger): void
     {
-        $this->authorize('delete', $chirp);
+        $this->authorize('delete', $messenger);
 
-        $chirp->delete();
+        $messenger->delete();
 
-        $this->getChirps();
+        $this->getMessengers();
     }
 }; ?>
 
 <div class="mt-6 bg-white shadow-sm rounded-lg divide-y">
-  @foreach ($chirps as $chirp)
-    <div class="p-6 flex space-x-2" wire:key="{{ $chirp->id }}">
+  @foreach ($messengers as $messenger)
+    <div class="p-6 flex space-x-2" wire:key="{{ $messenger->id }}">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600 -scale-x-100" fill="none" viewBox="0 0 24 24"
            stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round"
@@ -57,13 +57,13 @@ new class extends Component {
       <div class="flex-1">
         <div class="flex justify-between items-center">
           <div>
-            <span class="text-gray-800">{{ $chirp->user->name }}</span>
-            <small class="ml-2 text-sm text-gray-600">{{ $chirp->created_at->format('j M Y, g:i a') }}</small>
-            @unless ($chirp->created_at->eq($chirp->updated_at))
+            <span class="text-gray-800">{{ $messenger->user->name }}</span>
+            <small class="ml-2 text-sm text-gray-600">{{ $messenger->created_at->format('j M Y, g:i a') }}</small>
+            @unless ($messenger->created_at->eq($messenger->updated_at))
               <small class="text-sm text-gray-600"> &middot; {{ __('edited') }}</small>
             @endunless
           </div>
-          @if ($chirp->user->is(auth()->user()))
+          @if ($messenger->user->is(auth()->user()))
             <x-dropdown>
               <x-slot name="trigger">
                 <button>
@@ -75,21 +75,21 @@ new class extends Component {
                 </button>
               </x-slot>
               <x-slot name="content">
-                <x-dropdown-link wire:click="edit({{ $chirp->id }})">
+                <x-dropdown-link wire:click="edit({{ $messenger->id }})">
                   {{ __('Edit') }}
                 </x-dropdown-link>
 
-                <x-dropdown-link wire:click="delete({{ $chirp->id }})" wire:confirm="Are you sure to delete this chirp?">
+                <x-dropdown-link wire:click="delete({{ $messenger->id }})" wire:confirm="Are you sure to delete this messenger?">
                     {{ __('Delete') }}
                 </x-dropdown-link>
               </x-slot>
             </x-dropdown>
           @endif
         </div>
-        @if ($chirp->is($editing))
-          <livewire:chirps.edit :chirp="$chirp" :key="$chirp->id" />
+        @if ($messenger->is($editing))
+          <livewire:messenger.edit :messenger="$messenger" :key="$messenger->id" />
         @else
-          <p class="mt-4 text-lg text-gray-900">{{ $chirp->message }}</p>
+          <p class="mt-4 text-lg text-gray-900">{{ $messenger->message }}</p>
         @endif
       </div>
     </div>

@@ -1,34 +1,34 @@
 <?php
 
-use App\Models\Chirp;
+use App\Models\Messenger;
 use Livewire\Attributes\Validate;
 use Livewire\Volt\Component;
 
 new class extends Component {
-    public Chirp $chirp;
+    public Messenger $messenger;
 
     #[Validate('required|string|max:255')]
     public string $message = '';
 
     public function mount(): void
     {
-        $this->message = $this->chirp->message;
+        $this->message = $this->messenger->message;
     }
 
     public function update(): void
     {
-        $this->authorize('update', $this->chirp);
+        $this->authorize('update', $this->messenger);
 
         $validated = $this->validate();
 
-        $this->chirp->update($validated);
+        $this->messenger->update($validated);
 
-        $this->dispatch('chirp-updated');
+        $this->dispatch('messenger-updated');
     }
 
     public function cancel(): void
     {
-        $this->dispatch('chirp-edit-canceled');
+        $this->dispatch('messenger-edit-canceled');
     }
 }; ?>
 
