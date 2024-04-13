@@ -1,7 +1,15 @@
 <x-app-layout>
-    <div class="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
-        <livewire:messenger.create />
+    <!-- Header -->
 
-        <livewire:messenger.list />
+    <div class="grid grid-cols-12 gap-0">
+        <!-- Left column -->
+        <div class="col-span-3">
+            Johan
+        </div>
+
+        <!-- Left column -->
+        <div class="col-span-9">
+            Strydom
+        </div>
     </div>
 </x-app-layout>
