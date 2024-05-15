@@ -1,0 +1,121 @@
+div.light {
+  background: rgb(241, 241, 241) !important;
+  -webkit-box-shadow: 0 0 1px rgba(241, 241, 241, 0.25) !important;
+          box-shadow: 0 0 1px rgba(241, 241, 241, 0.25) !important;
+  color: #000000 !important;
+}
+
+div.dark {
+  background: rgb(92, 92, 92) !important;
+  -webkit-box-shadow: 0 0 1px rgba(92, 92, 92, 0.25) !important;
+          box-shadow: 0 0 1px rgba(92, 92, 92, 0.25) !important;
+  color: #eeeeee !important;
+}
+
+nav.dark {
+  background: rgb(92, 92, 92) !important;
+  -webkit-box-shadow: 0 0 1px rgba(92, 92, 92, 0.25) !important;
+          box-shadow: 0 0 1px rgba(92, 92, 92, 0.25) !important;
+  color: #eeeeee !important;
+}
+
+div.messenger {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: minmax(0, 1fr) 0px minmax(0, 1fr) 0px minmax(0, 1fr) 0px minmax(0, 1fr) 0px minmax(0, 1fr) 0px minmax(0, 1fr) 0px minmax(0, 1fr) 0px minmax(0, 1fr) 0px minmax(0, 1fr) 0px minmax(0, 1fr) 0px minmax(0, 1fr) 0px minmax(0, 1fr);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 0px;
+  min-height: 90vh;
+}
+div.messenger div.left {
+  min-height: 100%;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  -ms-grid-column-span: 3;
+  grid-column: span 3/span 3;
+}
+div.messenger div.left div.head {
+  min-height: 64px;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+div.messenger div.left div.head div.pic {
+  margin: auto;
+  max-width: 64px;
+  padding: 2px;
+}
+div.messenger div.left div.head div.pic img {
+  min-width: 100%;
+  min-height: 100%;
+  border-radius: 100%;
+}
+div.messenger div.left div.head div.name {
+  border-left-width: 1px;
+  border-right-width: 1px;
+  width: 100%;
+}
+div.messenger div.left div.head div.buttons {
+  margin: auto;
+  margin-left: 0px;
+  min-width: 96px;
+}
+div.messenger div.left div.body {
+  height: 100%;
+}
+div.messenger div.right {
+  min-height: 100%;
+  border-width: 1px;
+  -ms-grid-column-span: 9;
+  grid-column: span 9/span 9;
+}
+div.messenger div.right div.head {
+  min-height: 64px;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+div.messenger div.right div.head div.pic {
+  margin: auto;
+  max-width: 64px;
+  padding: 2px;
+}
+div.messenger div.right div.head div.pic img {
+  min-width: 100%;
+  min-height: 100%;
+  border-radius: 100%;
+}
+div.messenger div.right div.head div.name {
+  border-left-width: 1px;
+  border-right-width: 1px;
+  width: 100%;
+}
+div.messenger div.right div.head div.buttons {
+  margin: auto;
+  margin-left: 0px;
+  min-width: 128px;
+}
+div.messenger div.right div.body {
+  min-height: calc(100% - 8rem);
+}
+div.messenger div.right div.foot {
+  min-height: 64px;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+}
+
+.mainbody {
+  overflow: hidden;
+}

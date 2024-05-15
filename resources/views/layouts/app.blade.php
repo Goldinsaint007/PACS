@@ -10,18 +10,20 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="/css/bootstrap/bootstrap.css">
+        <script src="/js/bootstrap.js"></script>
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+    <body class="font-sans antialiased mainbody">
+        <div class="min-h-screen bg-gray-100 light" style="height: 100vh">
             <livewire:layout.navigation />
 
             <!-- Page Heading -->
             @if (isset($header))
                 <header class="bg-white shadow">
-                    <div class="max-w-8xl mx-auto py-0 px-4 sm:px-6 lg:px-8">
+                    <div class="px-4 py-0 mx-auto max-w-8xl sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
                 </header>

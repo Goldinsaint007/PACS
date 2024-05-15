@@ -1,0 +1,23 @@
+@mixin theme_light() {
+    background: rgb(241, 241, 241) !important;
+    box-shadow: 0 0 1px rgba(rgb(241, 241, 241), .25) !important;
+    color: #000000 !important;
+}
+
+@mixin theme_dark() {
+    background: rgb(92, 92, 92) !important;
+    box-shadow: 0 0 1px rgba(rgb(92, 92, 92), .25) !important;
+    color: #eeeeee !important;
+}
+
+div.light {
+    @include theme_light;
+}
+
+div.dark {
+    @include theme_dark;
+}
+
+nav.dark {
+    @include theme_dark;
+}
