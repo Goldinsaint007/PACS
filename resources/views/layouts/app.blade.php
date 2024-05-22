@@ -11,14 +11,14 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="/css/bootstrap/bootstrap.css">
-        <script src="/js/bootstrap.js"></script>
+        <script src="/js/bootstrap.bundle.js"></script>
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased mainbody">
         <div class="min-h-screen bg-gray-100 light" style="height: 100vh">
-            <livewire:layout.navigation />
+            <livewire:layout.nav-bar />
 
             <!-- Page Heading -->
             @if (isset($header))
